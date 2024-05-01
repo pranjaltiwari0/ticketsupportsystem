@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Support Ticketing System (Beautiful CSS)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .ticket-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            max-width: 90%;
+            text-align: center;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+        input[type="text"],
+        textarea,
+        select,
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+        select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg fill="%23007bff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>');
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 30px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ffff06;
+        }
+    </style>
+</head>
+<body>
+    <div class="ticket-form">
+        <h2>Submit a New Support Ticket</h2>
+        <form id="ticketForm">
+            <textarea id="issueDetails" placeholder="Describe your issue..." required></textarea>
+            <input type="text" id="issueCategory" placeholder="Category (optional)">
+            <select id="issuePriority">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <button type="submit">Submit Ticket</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('ticketForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const issueDetails = document.getElementById('issueDetails').value;
+            const issueCategory = document.getElementById('issueCategory').value;
+            const issuePriority = document.getElementById('issuePriority').value;
+
+            const ticketData = {
+                details: issueDetails,
+                category: issueCategory,
+                priority: issuePriority
+            };
+
+            // Simulate API call (replace this with actual API endpoint)
+            setTimeout(() => {
+                alert('Ticket submitted successfully!');
+                document.getElementById('issueDetails').value = '';
+                document.getElementById('issueCategory').value = '';
+                document.getElementById('issuePriority').value = 'low';
+            }, 1000); // Simulating 1-second delay (mock API call)
+        });
+    </script>
+</body>
+</html>
